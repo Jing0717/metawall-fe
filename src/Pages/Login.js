@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginLayout from '../Components/LoginLayout';
+import { LoginLayout } from '../Components';
 import metawall from '../assets/MetaWall.png';
 
 const Login = () => {

@@ -4,9 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ErrorPage from "./error-page";
+import ErrorPage from './error-page';
 import Register from './Pages/Register';
-
+import Home from './Pages/Home';
 
 const router = createBrowserRouter([
   {
@@ -15,10 +15,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "register",
+    path: 'register',
     element: <Register />,
   },
-
+  {
+    path: 'home',
+    element: <Home />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
