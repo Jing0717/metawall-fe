@@ -11,3 +11,10 @@
   background-size: 60px 60px;
   background-color: #efece7;
 }
+
+.appearance-none {
+  background-image: url("./assets/arrow.svg");
+  background-position: right 10px top 50%;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}

@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
   return (
     <main className='linear-gradient h-screen'>
       <Header />
-      <section className='container pt-[49px]'>
+      <section className='container flex pt-[49px] justify-between'>
         {children}
         <Sider />
       </section>

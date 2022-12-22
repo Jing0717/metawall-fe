@@ -1,13 +1,12 @@
 import React from 'react';
 import user from '../assets/user.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 
 const Sider = () => {
   return (
-    <aside className='hidden sm:flex flex-col border-2 border-black bg-white py-8 px-6'>
+    <aside className='hidden ml-[27px] md:flex flex-col border-2 border-black bg-white py-8 px-6 min-w-[309px]'>
       <button className='border-2 border-black rounded-md py-4 bg-[#03438D] text-white shadow-btn font-mono font-bold mb-6'>
         張貼動態
       </button>
