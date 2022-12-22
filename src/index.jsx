@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 import ErrorPage from './error-page';
 import Register from './Pages/Register';
 import Home from './Pages/Home';
