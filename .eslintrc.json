@@ -1,11 +1,12 @@
 {
   "extends": ["airbnb", "plugin:react/recommended", "prettier"],
   "plugins": ["prettier"],
-  "parser": "babel-eslint",
+  // "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": "error",
     "react/prop-types": "off",
     "import/no-named-as-default": "off",
-    "import/no-named-as-default-member": "off"
+    "import/no-named-as-default-member": "off",
+    "no-unused-vars": "off"
   }
 }

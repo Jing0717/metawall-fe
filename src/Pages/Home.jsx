@@ -1,11 +1,11 @@
 import React from 'react';
-import { MainLayout, Filter, Search } from '../Components';
+import { MainLayout, Filter, Search, PostsList } from '../Components';
 
 function Home() {
   return (
-    <section className="">
-      <MainLayout>
-        <section className="flex gap-3 justify-between w-full">
+    <MainLayout>
+      <div className="flex flex-col w-full">
+        <section className="flex gap-3 justify-between">
           <div className="w-1/3 md:w-5/12">
             <Filter />
           </div>
@@ -13,8 +13,11 @@ function Home() {
             <Search />
           </div>
         </section>
-      </MainLayout>
-    </section>
+        <section className="mt-4 space-y-4">
+          <PostsList />
+        </section>
+      </div>
+    </MainLayout>
   );
 }
 

@@ -7,7 +7,7 @@ function Search() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue);
+    // console.log(inputValue);
   };
   return (
     <form
