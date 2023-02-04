@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faLine,
+  faGooglePlusSquare,
+  faFacebookSquare,
+  faFacebook,
+  faDiscord,
+} from '@fortawesome/free-brands-svg-icons';
 import { LoginLayout } from '../Components';
 import metawall from '../assets/MetaWall.png';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Login() {
+  useEffect(() => {
+    library.add(faGooglePlusSquare, faLine, faFacebookSquare, faDiscord);
+  }, []);
   return (
     <LoginLayout>
       <section className="flex flex-col items-center">
@@ -33,6 +47,44 @@ function Login() {
             註冊帳號
           </a>
         </p>
+        <ul className="flex justify-center space-x-6 mt-3">
+          <li>
+            <a href={`${API_URL}/users/google`}>
+              <FontAwesomeIcon
+                icon={faGooglePlusSquare}
+                size="2xl"
+                className="text-[#F44F5A]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faLine}
+                size="2xl"
+                className="text-[#00C300]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faFacebookSquare}
+                size="2xl"
+                className="text-[#2AA4F4]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faDiscord}
+                size="2xl"
+                className="text-[#8C9EFF]"
+              />
+            </a>
+          </li>
+        </ul>
       </section>
     </LoginLayout>
   );
