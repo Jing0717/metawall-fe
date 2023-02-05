@@ -1,8 +1,31 @@
-import React from 'react';
-import { LoginLayout } from '../Components';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faDiscord,
+  faFacebookSquare,
+  faGooglePlusSquare,
+  faLine,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import metawall from '../assets/MetaWall.png';
+import { LoginLayout } from '../Components';
+import { useAuth } from '../Context/auth';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Login() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    library.add(faGooglePlusSquare, faLine, faFacebookSquare, faDiscord);
+  }, []);
+  useEffect(() => {
+    const { id } = user || {};
+    if (id) {
+      navigate('/');
+    }
+  }, [user, navigate]);
   return (
     <LoginLayout>
       <section className="flex flex-col items-center">
@@ -33,6 +56,44 @@ function Login() {
             註冊帳號
           </a>
         </p>
+        <ul className="flex justify-center space-x-6 mt-3">
+          <li>
+            <a href={`${API_URL}/users/google`}>
+              <FontAwesomeIcon
+                icon={faGooglePlusSquare}
+                size="2xl"
+                className="text-[#F44F5A]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faLine}
+                size="2xl"
+                className="text-[#00C300]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faFacebookSquare}
+                size="2xl"
+                className="text-[#2AA4F4]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="http://">
+              <FontAwesomeIcon
+                icon={faDiscord}
+                size="2xl"
+                className="text-[#8C9EFF]"
+              />
+            </a>
+          </li>
+        </ul>
       </section>
     </LoginLayout>
   );
