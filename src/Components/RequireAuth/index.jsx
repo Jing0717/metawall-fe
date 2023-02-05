@@ -8,10 +8,11 @@ const RequireAuth = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user?.id) {
-      navigate('/');
-    } else {
+    const { id } = user || {};
+    if (!id) {
       navigate('/login');
+    } else {
+      navigate('/');
     }
   }, [user, navigate]);
 

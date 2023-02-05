@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faLine,
-  faGooglePlusSquare,
-  faFacebookSquare,
-  faFacebook,
   faDiscord,
+  faFacebookSquare,
+  faGooglePlusSquare,
+  faLine,
 } from '@fortawesome/free-brands-svg-icons';
-import { LoginLayout } from '../Components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import metawall from '../assets/MetaWall.png';
+import { LoginLayout } from '../Components';
+import { useAuth } from '../Context/auth';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 function Login() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   useEffect(() => {
     library.add(faGooglePlusSquare, faLine, faFacebookSquare, faDiscord);
   }, []);
+  useEffect(() => {
+    const { id } = user || {};
+    console.log('id', id);
+    if (id) {
+      navigate('/');
+    }
+  }, [user, navigate]);
   return (
     <LoginLayout>
       <section className="flex flex-col items-center">
