@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { useAuth } from '../../Context/auth';
 import useLocalStorage from '../../helpers/useLocalStorage';
 import defaultAvatar from '../../assets/user_default.png';
@@ -8,7 +8,7 @@ const SocialLogin = ({ children }) => {
   const location = useLocation();
   const { setUser } = useAuth();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (location.search !== '' && location.search.includes('token')) {
       const searchParams = new URLSearchParams(location.search);
       const token = searchParams.get('token');
