@@ -3,7 +3,16 @@ import instance from './axios';
 import useLocalStorage from '../helpers/useLocalStorage';
 
 const getAuth = (token) => ({
-  headers: { Authorization: `Bearer ${token}` },
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
+const getImgAuth = (token) => ({
+  headers: {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'multipart/form-data',
+  },
 });
 
 const responseBody = (response) => response.data;
@@ -30,8 +39,23 @@ const request = {
 const UserApis = {
   login: (params) => request.post('/users/login', params),
   register: (params) => request.post('/users/create', params),
+  editProfile: (params) =>
+    request.patch(
+      '/users/profile',
+      params,
+      getAuth(useLocalStorage.getToken())
+    ),
+  updatePassword: (params) =>
+    request.post(
+      '/users/update_password',
+      params,
+      getAuth(useLocalStorage.getToken())
+    ),
 };
 
 const PostApis = {};
 
-export { UserApis, PostApis };
+const upload = (params) =>
+  request.post('/upload', params, getImgAuth(useLocalStorage.getToken()));
+
+export { UserApis, PostApis, upload };

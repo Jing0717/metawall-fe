@@ -9,7 +9,9 @@ function Header() {
   return (
     <header className="bg-white border-black border-b-[3px]">
       <div className="container flex justify-between items-center">
-        <h1 className="font-paytone text-[26px]">MetaWall</h1>
+        <button onClick={() => navigate('/')} type="button">
+          <h1 className="font-paytone text-[26px]">MetaWall</h1>
+        </button>
         <div
           className="flex flex-col relative py-4"
           onMouseOver={() => setDropMenuShow(true)}
@@ -20,7 +22,7 @@ function Header() {
             <img
               src={user.avatar}
               alt="avatar"
-              className="rounded-full w-[30px] h-[30px]"
+              className="rounded-full w-[30px] h-[30px] object-cover border-2 border-black"
             />
             <p className="ml-[10px] font-mono font-bold border-b-2 border-black">
               {user.name}
@@ -35,7 +37,7 @@ function Header() {
                   </Link>
                 </li>
                 <li className="border-b-2 border-black ">
-                  <Link to="/#" className="py-2 block hover:bg-[#EFECE7]">
+                  <Link to="/profile" className="py-2 block hover:bg-[#EFECE7]">
                     修改個人資料
                   </Link>
                 </li>

@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import { AuthProvider } from './Context/auth';
 import SocialLogin from './Components/SocialLogin';
 import RequireAuth from './Components/RequireAuth';
+import Profile from './Pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,15 @@ const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'profile',
+    element: (
+      <RequireAuth>
+        <Profile />
+      </RequireAuth>
+    ),
     errorElement: <ErrorPage />,
   },
 ]);

@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import user from '../../assets/user.png';
+import { useAuth } from '../../Context/auth';
 
 function Sider() {
+  const { user } = useAuth();
   return (
     <aside className="hidden ml-[27px] md:flex flex-col border-2 border-black bg-white py-8 px-6 min-w-[309px]">
       <button
@@ -14,8 +15,12 @@ function Sider() {
       </button>
       <ul className="pl-2 space-y-2">
         <li className="flex items-center">
-          <img src={user} alt="" className="rounded-full w-[50px] h-[50px]" />
-          <span className="font-bold ml-4">邊緣小杰</span>
+          <img
+            src={user.avatar}
+            alt="avatar"
+            className="rounded-full w-[50px] h-[50px] border-2 border-black object-cover"
+          />
+          <span className="font-bold ml-4">{user.name}</span>
         </li>
         <li className="flex items-center">
           <FontAwesomeIcon
