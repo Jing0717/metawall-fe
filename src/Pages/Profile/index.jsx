@@ -6,7 +6,8 @@ import style from './profile.module.scss';
 import { useAuth } from '../../Context/auth';
 import initialAvatar from '../../assets/user_default.png';
 import useLocalStorage from '../../helpers/useLocalStorage';
-import { UserApis, upload } from '../../apis/apis';
+import { UserApis } from '../../apis/apis';
+import Uploader from '../../Components/Uploader';
 
 const Profile = () => {
   const [isNameUpdate, setIsNameUpdate] = useState(true);
@@ -67,13 +68,7 @@ const Profile = () => {
     }
   };
 
-  const handleFileUpload = async (e) => {
-    setIsDisabled(true);
-    const file = e.target.files || [];
-    const formData = new FormData();
-    formData.append('file', file[0]);
-    const result = await upload(formData);
-    const { status = false, message = '上傳發生異常' } = result;
+  const handleUploadFinnish = (status, message) => {
     if (status) {
       setAvatarUrl(message);
       setValue('avatar', message);
@@ -84,6 +79,7 @@ const Profile = () => {
       setIsDisabled(false);
     }
   };
+
   return (
     <MainLayout>
       <div className="flex flex-col w-full">
@@ -126,23 +122,12 @@ const Profile = () => {
                   alt="avatar"
                   className="rounded-full border-2 border-black w-[107px] h-[107px] object-cover"
                 />
-                <label
-                  htmlFor="upload"
-                  className={`inline-block w-[128px] py-1  text-center cursor-pointer mb-4 mt-5 ${
-                    isDisabled
-                      ? 'pointer-events-none cursor-not-allowed bg-gray-500'
-                      : 'bg-black text-white'
-                  }`}
-                >
-                  上傳大頭照
-                  <input
-                    type="file"
-                    className="hidden"
-                    id="upload"
-                    name="upload"
-                    onChange={handleFileUpload}
-                  />
-                </label>
+                <Uploader
+                  isDisabled={isDisabled}
+                  handleUploadFinnish={handleUploadFinnish}
+                  setIsDisabled={setIsDisabled}
+                  text="上傳大頭照"
+                />
                 {uploadMessage !== '' && (
                   <div className="text-center text-[#F57375]">
                     {uploadMessage}

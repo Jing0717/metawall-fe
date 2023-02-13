@@ -8,6 +8,7 @@ import { AuthProvider } from './Context/auth';
 import SocialLogin from './Components/SocialLogin';
 import RequireAuth from './Components/RequireAuth';
 import Profile from './Pages/Profile';
+import CreatePost from './Pages/CreatePost';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,15 @@ const router = createBrowserRouter([
     element: (
       <RequireAuth>
         <Profile />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'create',
+    element: (
+      <RequireAuth>
+        <CreatePost />
       </RequireAuth>
     ),
     errorElement: <ErrorPage />,

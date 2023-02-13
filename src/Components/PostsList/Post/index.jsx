@@ -4,8 +4,6 @@ import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 
 import Comment from '../Comment';
 import user from '../../../assets/user.png';
-import fakeUser from '../../../assets/user6.png';
-import fakeImg from '../../../assets/image.png';
 
 function Post({ data }) {
   return (

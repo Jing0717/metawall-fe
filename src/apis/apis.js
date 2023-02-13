@@ -53,7 +53,10 @@ const UserApis = {
     ),
 };
 
-const PostApis = {};
+const PostApis = {
+  create: (params) =>
+    request.post('/posts/create', params, getAuth(useLocalStorage.getToken())),
+};
 
 const upload = (params) =>
   request.post('/upload', params, getImgAuth(useLocalStorage.getToken()));

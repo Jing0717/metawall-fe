@@ -10,7 +10,8 @@
     "no-unused-vars": "off",
     "react/function-component-definition": "off",
     "react/jsx-no-constructed-context-values": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "react/jsx-props-no-spreading" :"off"
   },
   "globals": {
     "localStorage": true
