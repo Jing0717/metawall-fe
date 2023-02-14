@@ -10,6 +10,9 @@ module.exports = {
         DEFAULT: '1rem',
         lg: '2rem',
       },
+      screens: {
+        lg: '870px',
+      },
     },
     extend: {
       fontFamily: {

@@ -11,7 +11,8 @@
     "react/function-component-definition": "off",
     "react/jsx-no-constructed-context-values": "off",
     "no-debugger": "off",
-    "react/jsx-props-no-spreading" :"off"
+    "react/jsx-props-no-spreading" :"off",
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   },
   "globals": {
     "localStorage": true

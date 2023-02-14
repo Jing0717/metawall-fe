@@ -56,9 +56,32 @@ const UserApis = {
 const PostApis = {
   create: (params) =>
     request.post('/posts/create', params, getAuth(useLocalStorage.getToken())),
+  getAll: (params = {}) =>
+    request.get(`/posts`, getAuth(useLocalStorage.getToken())),
+  addLike: (params) =>
+    request.post(
+      `/posts/${params.postID}/likes`,
+      params,
+      getAuth(useLocalStorage.getToken())
+    ),
+  unLike: (params) =>
+    request.delete(
+      `/posts/${params.postID}/likes`,
+      params,
+      getAuth(useLocalStorage.getToken())
+    ),
+};
+
+const CommentApis = {
+  create: (params) =>
+    request.post(
+      `/posts/${params.postID}/comment`,
+      { comment: params.comment },
+      getAuth(useLocalStorage.getToken())
+    ),
 };
 
 const upload = (params) =>
   request.post('/upload', params, getImgAuth(useLocalStorage.getToken()));
 
-export { UserApis, PostApis, upload };
+export { UserApis, PostApis, CommentApis, upload };
