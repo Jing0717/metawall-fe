@@ -34,13 +34,15 @@ function Sider() {
             />
             <span className="font-bold ml-4">追蹤名單</span>
           </li>
-          <li className="flex items-center">
-            <FontAwesomeIcon
-              icon={faThumbsUp}
-              size="xl"
-              className="rounded-full border-black border-2 p-3 bg-[#E2EDFA]"
-            />
-            <span className="font-bold ml-4">我按讚的文章</span>
+          <li>
+            <Link to="/likes" className="flex items-center">
+              <FontAwesomeIcon
+                icon={faThumbsUp}
+                size="xl"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA]"
+              />
+              <span className="font-bold ml-4">我按讚的文章</span>
+            </Link>
           </li>
         </ul>
       </aside>
@@ -64,7 +66,7 @@ function Sider() {
           </li>
           <li>
             <Link
-              to="/"
+              to="/likes"
               className="block border-2 border-black rounded-full bg-white w-12 h-12 text-center"
             >
               <FontAwesomeIcon icon={faThumbsUp} size="xl" className="p-2" />

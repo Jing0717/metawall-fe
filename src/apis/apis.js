@@ -45,6 +45,8 @@ const UserApis = {
       params,
       getAuth(useLocalStorage.getToken())
     ),
+  getLikesList: () =>
+    request.get('/users/getLikesList/', getAuth(useLocalStorage.getToken())),
   updatePassword: (params) =>
     request.post(
       '/users/update_password',
@@ -58,6 +60,8 @@ const PostApis = {
     request.post('/posts/create', params, getAuth(useLocalStorage.getToken())),
   getAll: (params = {}) =>
     request.get(`/posts`, getAuth(useLocalStorage.getToken())),
+  getOne: (params) =>
+    request.get(`/posts/${params.id}`, getAuth(useLocalStorage.getToken())),
   addLike: (params) =>
     request.post(
       `/posts/${params.postID}/likes`,

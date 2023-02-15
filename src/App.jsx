@@ -9,6 +9,8 @@ import SocialLogin from './Components/SocialLogin';
 import RequireAuth from './Components/RequireAuth';
 import Profile from './Pages/Profile';
 import CreatePost from './Pages/CreatePost';
+import Likes from './Pages/Likes';
+import SinglePost from './Pages/SinglePost';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,24 @@ const router = createBrowserRouter([
     element: (
       <RequireAuth>
         <CreatePost />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'likes',
+    element: (
+      <RequireAuth>
+        <Likes />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'posts/:id',
+    element: (
+      <RequireAuth>
+        <SinglePost />
       </RequireAuth>
     ),
     errorElement: <ErrorPage />,

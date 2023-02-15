@@ -26,6 +26,7 @@ module.exports = {
       boxShadow: {
         btn: '-2px 2px 0px #000400',
         '3xl': '-8px 8px 0px #00040029',
+        list: '0px 3px 0px #000400',
       },
     },
   },

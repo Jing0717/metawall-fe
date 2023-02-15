@@ -69,7 +69,7 @@ function Post({ data }) {
   );
 
   return (
-    <div>
+    <div className="w-full">
       <div className="border-black border-2 p-6 rounded-lg flex flex-col bg-white">
         <div className="flex mb-4">
           <img
