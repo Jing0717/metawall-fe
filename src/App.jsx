@@ -11,6 +11,7 @@ import Profile from './Pages/Profile';
 import CreatePost from './Pages/CreatePost';
 import Likes from './Pages/Likes';
 import SinglePost from './Pages/SinglePost';
+import User from './Pages/User';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,15 @@ const router = createBrowserRouter([
     element: (
       <RequireAuth>
         <SinglePost />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'users/:id',
+    element: (
+      <RequireAuth>
+        <User />
       </RequireAuth>
     ),
     errorElement: <ErrorPage />,

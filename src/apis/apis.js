@@ -53,6 +53,23 @@ const UserApis = {
       params,
       getAuth(useLocalStorage.getToken())
     ),
+  getUserProfiles: (params) =>
+    request.get(
+      `/users/profile/${params.id}`,
+      getAuth(useLocalStorage.getToken())
+    ),
+  follow: (params) =>
+    request.post(
+      `/users/${params.id}/follow`,
+      {},
+      getAuth(useLocalStorage.getToken())
+    ),
+  unFollow: (params) =>
+    request.delete(
+      `/users/${params.id}/unfollow`,
+      {},
+      getAuth(useLocalStorage.getToken())
+    ),
 };
 
 const PostApis = {

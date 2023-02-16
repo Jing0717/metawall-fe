@@ -6,7 +6,7 @@ import { faPlus, faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../Context/auth';
 
-function Sider() {
+function SideBar() {
   const { user } = useAuth();
   return (
     <div className="">
@@ -86,4 +86,4 @@ function Sider() {
   );
 }
 
-export default Sider;
+export default SideBar;

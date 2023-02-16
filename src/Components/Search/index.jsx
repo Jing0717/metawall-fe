@@ -11,7 +11,7 @@ function Search() {
   };
   return (
     <form
-      className="flex h-[46px] w-full max-w-[365px] absolute right-0"
+      className="flex h-[46px] w-full absolute right-0"
       onSubmit={handleSubmit}
     >
       <input

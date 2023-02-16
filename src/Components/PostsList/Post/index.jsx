@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp as solidThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 import Comment from '../Comment';
 import defaultUser from '../../../assets/user_default.png';
 import { useAuth } from '../../../Context/auth';
@@ -71,7 +72,7 @@ function Post({ data }) {
   return (
     <div className="w-full">
       <div className="border-black border-2 p-6 rounded-lg flex flex-col bg-white">
-        <div className="flex mb-4">
+        <Link to={`/users/${userId._id}`} className="flex mb-4">
           <img
             src={avatar}
             alt="userImg"
@@ -83,7 +84,7 @@ function Post({ data }) {
               {timeFormat(createdAt)}
             </span>
           </div>
-        </div>
+        </Link>
         <div className="space-y-4">
           <p>{content}</p>
           {image !== '' && (
