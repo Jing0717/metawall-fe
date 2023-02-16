@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { MainLayout } from '../../Components';
 import { UserApis } from '../../apis/apis';
+import Loading from '../../Components/Loading';
 
 const FollowingItem = ({ data }) => {
   const { createdAt, user } = data;
@@ -47,7 +48,9 @@ const FollowingItem = ({ data }) => {
           className="rounded-full w-[40px] h-[40px] border-2 border-black object-cover"
         />
         <div className="flex flex-col gap-1 ml-4">
-          <span className="font-bold">{user.name}</span>
+          <span className="font-bold hover:text-[#03438D] hover:underline ">
+            {user.name}
+          </span>
           <span className="text-xs text-[#9B9893]">
             追蹤時間：{timeFormat(createdAt)}
           </span>
@@ -60,12 +63,15 @@ const FollowingItem = ({ data }) => {
 
 const Follow = () => {
   const [followingList, setFollowingList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchFollowingList = async () => {
       const result = await UserApis.getFollowList();
       if (result.status) {
         setFollowingList(result.data[0].following);
       }
+      setIsLoading(false);
     };
     fetchFollowingList();
   }, []);
@@ -78,11 +84,15 @@ const Follow = () => {
           </p>
           <div className="w-full border-2 border-black bg-white absolute h-[64px] right-[1px] top-[10px]" />
         </div>
-        <div className="mt-24 space-y-4">
-          {followingList.map((following) => (
-            <FollowingItem key={following.user._id} data={following} />
-          ))}
-        </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="mt-24 space-y-4">
+            {followingList.map((following) => (
+              <FollowingItem key={following.user._id} data={following} />
+            ))}
+          </div>
+        )}
       </div>
     </MainLayout>
   );

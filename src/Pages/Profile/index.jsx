@@ -258,7 +258,7 @@ const Profile = () => {
                   <button
                     type="submit"
                     className="disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-gray-500
-                    bg-[#A8B0B9] text-white rounded-lg w-full py-4 border-2 border-black shadow-md mt-8"
+                    bg-[#A8B0B9] text-white rounded-lg w-full py-4 border-2 border-black shadow-md mt-8 hover:bg-[#03438D]"
                   >
                     重設密碼
                   </button>

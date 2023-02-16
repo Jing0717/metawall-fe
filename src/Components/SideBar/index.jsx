@@ -13,7 +13,7 @@ function SideBar() {
       <aside className="hidden ml-[27px] md:flex md:flex-col border-2 border-black bg-white py-8 px-6 min-w-[309px]">
         <Link
           to="/create"
-          className="border-2 border-black rounded-md py-4 bg-[#03438D] text-white shadow-btn font-mono font-bold mb-6 text-center"
+          className="border-2 border-black rounded-md py-4 bg-[#03438D] hover:bg-[#EEC32A] hover:text-black text-white shadow-btn font-mono font-bold mb-6 text-center"
         >
           張貼動態
         </Link>
@@ -27,21 +27,27 @@ function SideBar() {
             <span className="font-bold ml-4">{user.name}</span>
           </li>
           <li>
-            <Link to="/follow" className="flex items-center">
+            <Link
+              to="/follow"
+              className="flex items-center hover:text-[#03438D]"
+            >
               <FontAwesomeIcon
                 icon={faBell}
                 size="xl"
-                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA]"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-[#03438D] hover:text-white"
               />
               <span className="font-bold ml-4">追蹤名單</span>
             </Link>
           </li>
           <li>
-            <Link to="/likes" className="flex items-center">
+            <Link
+              to="/likes"
+              className="flex items-center hover:text-[#03438D]"
+            >
               <FontAwesomeIcon
                 icon={faThumbsUp}
                 size="xl"
-                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA]"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-[#03438D] hover:text-white"
               />
               <span className="font-bold ml-4">我按讚的文章</span>
             </Link>

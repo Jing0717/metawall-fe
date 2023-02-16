@@ -85,6 +85,7 @@ function Register() {
             })}
             className="w-full font-mono border-black border-2 py-4 pl-6 mt-4"
             placeholder="Password"
+            type="password"
           />
           {errors.password && (
             <span className="text-[#F57375]">{errors.password.message}</span>
@@ -106,6 +107,7 @@ function Register() {
             })}
             className="w-full font-mono border-black border-2 py-4 pl-6 mt-4"
             placeholder="confirmPassword"
+            type="password"
           />
           {errors.confirmPassword && (
             <div className="text-[#F57375]">
@@ -120,7 +122,7 @@ function Register() {
           />
         </form>
         <p>
-          <a href="/" className="hover:text-blue-900">
+          <a href="/" className="hover:text-blue-900 hover:underline">
             登入
           </a>
         </p>

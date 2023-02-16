@@ -78,6 +78,7 @@ function Login() {
             })}
             className="w-full font-mono border-black border-2 py-4 pl-6 mb-8"
             placeholder="Password"
+            type="password"
           />
           {isError && (
             <span className="text-[#F57375] mb-4">{errorMessage}</span>
@@ -89,7 +90,7 @@ function Login() {
           />
         </form>
         <p>
-          <a href="/register" className="hover:text-blue-900">
+          <a href="/register" className="hover:text-blue-900 hover:underline">
             註冊帳號
           </a>
         </p>

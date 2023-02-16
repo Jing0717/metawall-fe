@@ -79,7 +79,9 @@ function Post({ data }) {
             className="rounded-full w-[45px] h-[45px] border-2 border-black object-cover"
           />
           <div className="flex flex-col gap-1 ml-4">
-            <span className="font-bold">{userId.name}</span>
+            <span className="font-bold hover:text-[#03438D] hover:underline">
+              {userId.name}
+            </span>
             <span className="text-xs text-gray-300">
               {timeFormat(createdAt)}
             </span>

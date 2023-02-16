@@ -8,9 +8,11 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { MainLayout } from '../../Components';
 import { PostApis, UserApis } from '../../apis/apis';
+import Loading from '../../Components/Loading';
 
 const LikesItem = ({ data, removeLike }) => {
-  const { createdAt, userId, _id: postID, likesList, setLikesList } = data;
+  const { createdAt, userId, _id: postID } = data;
+
   const timeFormat = (createdTime) => {
     const theDay = moment(createdTime);
     return theDay.format('YYYY-MM-DD HH:mm');
@@ -31,7 +33,9 @@ const LikesItem = ({ data, removeLike }) => {
           className="rounded-full w-[40px] h-[40px] border-2 border-black object-cover"
         />
         <div className="flex flex-col gap-1 ml-4">
-          <span className="font-bold">{userId.name}</span>
+          <span className="font-bold hover:text-[#03438D] hover:underline">
+            {userId.name}
+          </span>
           <span className="text-xs text-[#9B9893]">
             發文時間：{timeFormat(createdAt)}
           </span>
@@ -57,10 +61,15 @@ const LikesItem = ({ data, removeLike }) => {
 
 const Likes = () => {
   const [likesList, setLikesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchLikeList = async () => {
       const result = await UserApis.getLikesList();
-      return result.status ? setLikesList(result.data) : [];
+      if (result.status) {
+        setLikesList(result.data);
+        setIsLoading(false);
+      }
     };
 
     fetchLikeList();
@@ -80,11 +89,15 @@ const Likes = () => {
           </p>
           <div className="w-full border-2 border-black bg-white absolute h-[64px] right-[1px] top-[10px]" />
         </div>
-        <div className="mt-24 space-y-4">
-          {likesList.map((like) => (
-            <LikesItem key={like._id} data={like} removeLike={removeLike} />
-          ))}
-        </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="mt-24 space-y-4">
+            {likesList.map((like) => (
+              <LikesItem key={like._id} data={like} removeLike={removeLike} />
+            ))}
+          </div>
+        )}
       </div>
     </MainLayout>
   );
