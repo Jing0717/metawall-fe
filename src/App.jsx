@@ -12,6 +12,7 @@ import CreatePost from './Pages/CreatePost';
 import Likes from './Pages/Likes';
 import SinglePost from './Pages/SinglePost';
 import User from './Pages/User';
+import Follow from './Pages/Follow';
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,15 @@ const router = createBrowserRouter([
     element: (
       <RequireAuth>
         <User />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'follow',
+    element: (
+      <RequireAuth>
+        <Follow />
       </RequireAuth>
     ),
     errorElement: <ErrorPage />,

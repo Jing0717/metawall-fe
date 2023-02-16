@@ -26,13 +26,15 @@ function SideBar() {
             />
             <span className="font-bold ml-4">{user.name}</span>
           </li>
-          <li className="flex items-center">
-            <FontAwesomeIcon
-              icon={faBell}
-              size="xl"
-              className="rounded-full border-black border-2 p-3 bg-[#E2EDFA]"
-            />
-            <span className="font-bold ml-4">追蹤名單</span>
+          <li>
+            <Link to="/follow" className="flex items-center">
+              <FontAwesomeIcon
+                icon={faBell}
+                size="xl"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA]"
+              />
+              <span className="font-bold ml-4">追蹤名單</span>
+            </Link>
           </li>
           <li>
             <Link to="/likes" className="flex items-center">
@@ -58,7 +60,7 @@ function SideBar() {
           </li>
           <li>
             <Link
-              to="/"
+              to="/follow"
               className="block border-2 border-black rounded-full bg-white w-12 h-12 text-center"
             >
               <FontAwesomeIcon icon={faBell} size="xl" className="p-2" />

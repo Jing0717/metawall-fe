@@ -70,6 +70,8 @@ const UserApis = {
       {},
       getAuth(useLocalStorage.getToken())
     ),
+  getFollowList: () =>
+    request.get('/users/getFollowList/', getAuth(useLocalStorage.getToken())),
 };
 
 const PostApis = {
