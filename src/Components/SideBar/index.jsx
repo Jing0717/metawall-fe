@@ -1,6 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import {
+  faBell,
+  faThumbsUp,
+  faPaperPlane,
+} from '@fortawesome/free-regular-svg-icons';
 import { faPlus, faHome } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
@@ -52,6 +56,16 @@ function SideBar() {
               <span className="font-bold ml-4">我按讚的文章</span>
             </Link>
           </li>
+          <li>
+            <Link to="/chat" className="flex items-center hover:text-[#03438D]">
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                size="xl"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-[#03438D] hover:text-white"
+              />
+              <span className="font-bold ml-4">聊天室</span>
+            </Link>
+          </li>
         </ul>
       </aside>
       <aside className="md:hidden fixed bottom-5 left-0 w-full px-2 bg-transparent">
@@ -86,6 +100,14 @@ function SideBar() {
               className="block border-2 border-black rounded-full bg-[#03438D] w-12 h-12 text-white text-center"
             >
               <FontAwesomeIcon icon={faPlus} size="xl" className="p-2" />
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/chat"
+              className="block border-2 border-black rounded-full bg-[#03438D] w-12 h-12 text-white text-center"
+            >
+              <FontAwesomeIcon icon={faPaperPlane} size="xl" className="p-2" />
             </Link>
           </li>
         </ul>

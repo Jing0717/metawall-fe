@@ -104,7 +104,14 @@ const CommentApis = {
     ),
 };
 
+const MessagesApis = {
+  enterRoom: (params) =>
+    request.put('/chat', params, getAuth(useLocalStorage.getToken())),
+  send: (params) =>
+    request.post('/chat', params, getAuth(useLocalStorage.getToken())),
+};
+
 const upload = (params) =>
   request.post('/upload', params, getImgAuth(useLocalStorage.getToken()));
 
-export { UserApis, PostApis, CommentApis, upload };
+export { UserApis, PostApis, CommentApis, MessagesApis, upload };

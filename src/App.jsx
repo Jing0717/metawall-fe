@@ -13,6 +13,7 @@ import Likes from './Pages/Likes';
 import SinglePost from './Pages/SinglePost';
 import User from './Pages/User';
 import Follow from './Pages/Follow';
+import Chat from './Pages/Chat';
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,15 @@ const router = createBrowserRouter([
     element: (
       <RequireAuth>
         <Follow />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'chat',
+    element: (
+      <RequireAuth>
+        <Chat />
       </RequireAuth>
     ),
     errorElement: <ErrorPage />,
