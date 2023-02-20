@@ -14,6 +14,7 @@ import SinglePost from './Pages/SinglePost';
 import User from './Pages/User';
 import Follow from './Pages/Follow';
 import Chat from './Pages/Chat';
+import ForgetPassword from './Pages/ForgetPassword';
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,11 @@ const router = createBrowserRouter([
         <Chat />
       </RequireAuth>
     ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'forget_password',
+    element: <ForgetPassword />,
     errorElement: <ErrorPage />,
   },
 ]);

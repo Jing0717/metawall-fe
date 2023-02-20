@@ -72,6 +72,13 @@ const UserApis = {
     ),
   getFollowList: () =>
     request.get('/users/getFollowList/', getAuth(useLocalStorage.getToken())),
+  forgetPassword: (params) =>
+    request.post(
+      '/users/forget_password',
+      params,
+      getAuth(useLocalStorage.getToken())
+    ),
+  resetPassword: (params) => request.patch('/users/reset_password', params),
 };
 
 const PostApis = {

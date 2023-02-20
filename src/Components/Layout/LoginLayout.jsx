@@ -1,5 +1,15 @@
 import React from 'react';
+import {
+  faDiscord,
+  faFacebookSquare,
+  faGooglePlusSquare,
+  faLine,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import loginImg from '../../assets/loginImg.svg';
+import metawall from '../../assets/MetaWall.png';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function LoginLayout({ children }) {
   return (
@@ -11,7 +21,49 @@ function LoginLayout({ children }) {
             src={loginImg}
             alt="loginImg"
           />
-          {children}
+          <section className="flex flex-col items-center justify-between">
+            <img src={metawall} alt="metawall" className="w-[296px] h-[84px]" />
+            {children}
+
+            <ul className="flex justify-center space-x-6 mt-3">
+              <li>
+                <a href={`${API_URL}/users/google`}>
+                  <FontAwesomeIcon
+                    icon={faGooglePlusSquare}
+                    size="2xl"
+                    className="text-[#F44F5A]"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="http://">
+                  <FontAwesomeIcon
+                    icon={faLine}
+                    size="2xl"
+                    className="text-[#00C300]"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="http://">
+                  <FontAwesomeIcon
+                    icon={faFacebookSquare}
+                    size="2xl"
+                    className="text-[#2AA4F4]"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="http://">
+                  <FontAwesomeIcon
+                    icon={faDiscord}
+                    size="2xl"
+                    className="text-[#8C9EFF]"
+                  />
+                </a>
+              </li>
+            </ul>
+          </section>
         </div>
       </section>
     </main>

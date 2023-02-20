@@ -37,8 +37,7 @@ function Register() {
 
   return (
     <LoginLayout>
-      <section className="flex flex-col items-center">
-        <img src={metawall} alt="metawall" className="w-[296px] h-[84px]" />
+      <>
         <h2 className="text-2xl font-bold mb-9">註冊</h2>
         <form
           className="flex flex-col items-center w-full"
@@ -126,7 +125,7 @@ function Register() {
             登入
           </a>
         </p>
-      </section>
+      </>
     </LoginLayout>
   );
 }
