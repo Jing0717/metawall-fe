@@ -66,20 +66,23 @@ function Login() {
       {tokenIsExist === '' && (
         <>
           <form
-            className="flex flex-col items-center w-full"
+            className="flex flex-col items-center w-full gap-4"
             onSubmit={handleSubmit(onSubmit)}
           >
             <input
               {...register('email', {
                 required: '信箱尚未填寫',
                 pattern: {
-                  value: /^\w+([.-]?\w+)@\w+([.-]?\w+)(\w{2,3})+$/,
+                  value: /^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})(\.\w+)*$/,
                   message: '錯誤的 Email 格式',
                 },
               })}
-              className="w-full font-mono border-black border-2 py-4 pl-6 m-4"
+              className="w-full font-mono border-black border-2 py-4 pl-6"
               placeholder="Email"
             />
+            {errors.email && (
+              <span className="text-[#F57375]">{errors.email.message}</span>
+            )}
             <input
               {...register('password', {
                 required: '密碼尚未填寫',
@@ -88,16 +91,19 @@ function Login() {
                   message: '密碼至少 8 個字元以上',
                 },
               })}
-              className="w-full font-mono border-black border-2 py-4 pl-6 mb-8"
+              className="w-full font-mono border-black border-2 py-4 pl-6"
               placeholder="Password"
               type="password"
             />
             {isError && (
               <span className="text-[#F57375] mb-4">{errorMessage}</span>
             )}
+            {errors.password && (
+              <span className="text-[#F57375]">{errors.password.message}</span>
+            )}
             <input
               type="submit"
-              className="w-full bg-blue-900 text-white rounded-md py-4 mb-4"
+              className="w-full bg-blue-900 text-white rounded-md py-4 my-4"
               value="登入"
             />
           </form>

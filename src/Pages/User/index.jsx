@@ -2,8 +2,7 @@ import React, { useEffect, useState, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserApis } from '../../apis/apis';
 import { useAuth } from '../../Context/auth';
-import { Filter, MainLayout, Search } from '../../Components';
-import Post from '../../Components/PostsList/Post';
+import { MainLayout, PostsList } from '../../Components';
 import Loading from '../../Components/Loading';
 
 const User = () => {
@@ -95,19 +94,11 @@ const User = () => {
             </div>
             <div className="w-full border-2 border-black bg-white absolute h-[80px] rounded-lg mt-2 right-2" />
           </div>
-          <section className="mt-24 w-full mb-3">
-            <div className="flex justify-between">
-              <div className="w-1/3 md:w-5/12">
-                <Filter />
-              </div>
-              <div className="w-2/3 md:w-6/12 relative">
-                <Search />
-              </div>
+          <section className="">
+            <div className="mt-28 mb-3 space-y-4">
+              {listData && listData !== [] && <PostsList data={listData} />}
             </div>
           </section>
-          {listData &&
-            listData !== [] &&
-            listData.map((post) => <Post key={post._id} data={post} />)}
         </div>
       )}
     </MainLayout>

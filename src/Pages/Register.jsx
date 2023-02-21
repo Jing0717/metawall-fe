@@ -64,7 +64,7 @@ function Register() {
             {...register('email', {
               required: '信箱尚未填寫',
               pattern: {
-                value: /^\w+([.-]?\w+)@\w+([.-]?\w+)(\w{2,3})+$/,
+                value: /^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})(\.\w+)*$/,
                 message: '錯誤的 Email 格式',
               },
             })}
