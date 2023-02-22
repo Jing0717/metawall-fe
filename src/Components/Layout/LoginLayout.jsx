@@ -36,7 +36,7 @@ function LoginLayout({ children }) {
                 </a>
               </li>
               <li>
-                <a href="http://">
+                <a href={`${API_URL}/users/line`}>
                   <FontAwesomeIcon
                     icon={faLine}
                     size="2xl"
@@ -45,7 +45,7 @@ function LoginLayout({ children }) {
                 </a>
               </li>
               <li>
-                <a href="http://">
+                <a href={`${API_URL}/users/facebook`}>
                   <FontAwesomeIcon
                     icon={faFacebookSquare}
                     size="2xl"
@@ -54,7 +54,7 @@ function LoginLayout({ children }) {
                 </a>
               </li>
               <li>
-                <a href="http://">
+                <a href={`${API_URL}/users/discord`}>
                   <FontAwesomeIcon
                     icon={faDiscord}
                     size="2xl"

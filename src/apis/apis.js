@@ -15,6 +15,15 @@ const getImgAuth = (token) => ({
   },
 });
 
+const paramsToQuery = (params = {}) => {
+  if (Object.keys(params).length !== 0) {
+    return Object.keys(params)
+      .map((key) => `${key}=${params[key]}`)
+      .join('&');
+  }
+  return '';
+};
+
 const responseBody = (response) => response.data;
 const errorBody = (error) => error.response.data;
 const request = {
@@ -85,7 +94,10 @@ const PostApis = {
   create: (params) =>
     request.post('/posts/create', params, getAuth(useLocalStorage.getToken())),
   getAll: (params = {}) =>
-    request.get(`/posts`, getAuth(useLocalStorage.getToken())),
+    request.get(
+      `/posts?${paramsToQuery(params)}`,
+      getAuth(useLocalStorage.getToken())
+    ),
   getOne: (params) =>
     request.get(`/posts/${params.id}`, getAuth(useLocalStorage.getToken())),
   addLike: (params) =>
