@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context/auth';
+import defaultAvatar from '../../assets/user_default.png';
 
 function Header() {
   const { user, logOut } = useAuth();
@@ -22,7 +23,7 @@ function Header() {
         >
           <div className="flex items-center">
             <img
-              src={user.avatar}
+              src={user.avatar ? user.avatar : defaultAvatar}
               alt="avatar"
               className="rounded-full w-[30px] h-[30px] object-cover border-2 border-black"
             />

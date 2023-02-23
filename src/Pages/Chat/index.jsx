@@ -24,6 +24,7 @@ const Chat = () => {
   };
 
   const handleSendMessage = async () => {
+    if (isDisabled) return;
     setIsDisabled(true);
     await MessagesApis.send({ content });
     setContent('');
@@ -73,7 +74,7 @@ const Chat = () => {
 
   return (
     <MainLayout>
-      <div className=" w-full mb-16">
+      <div className=" w-full">
         <div className="flex flex-col">
           <div className="relative pl-1">
             <p className="border-2 border-black text-center bg-white z-10 py-[18px] w-full absolute text-xl font-mono font-bold">
@@ -82,7 +83,8 @@ const Chat = () => {
             <div className="w-full border-2 border-black bg-white absolute h-[64px] right-[1px] top-[10px]" />
           </div>
           <div
-            className=" border-2 border-black p-8 rounded-lg bg-white mt-24 space-y-8 h-96 overflow-auto"
+            className="border-2 border-black p-8 rounded-lg bg-white mt-24 space-y-8 h-80 md:h-96 overflow-auto"
+            style={{ height: '50vh' }}
             ref={chatRoom}
           >
             {messages.map((message) => (
@@ -93,9 +95,9 @@ const Chat = () => {
                 createdAt={message.createdAt}
               />
             ))}
-            <div className="text-gray-500">{currentEnterUser}</div>
+            <div className="text-gray-500 text-end">{currentEnterUser}</div>
           </div>
-          <div className="flex justify-between items-center mt-4 w-full border-2 border-black">
+          <div className="flex justify-between items-center border-2 border-black fixed sm:bottom-32 bottom-24 right-4 left-4 md:static md:mt-4">
             <input
               type="text"
               value={content}
