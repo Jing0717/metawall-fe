@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { MainLayout } from '../../Components';
 import { UserApis } from '../../apis/apis';
 import Loading from '../../Components/Loading';
+import Empty from '../../Components/Empty';
 
 const FollowingItem = ({ data }) => {
   const { createdAt, user } = data;
@@ -88,9 +89,13 @@ const Follow = () => {
           <Loading />
         ) : (
           <div className="mt-24 space-y-4">
-            {followingList.map((following) => (
-              <FollowingItem key={following.user._id} data={following} />
-            ))}
+            {followingList && followingList.length ? (
+              followingList.map((following) => (
+                <FollowingItem key={following.user._id} data={following} />
+              ))
+            ) : (
+              <Empty type="FOLLOWS" />
+            )}
           </div>
         )}
       </div>

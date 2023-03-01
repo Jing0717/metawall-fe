@@ -4,6 +4,8 @@ import { UserApis } from '../../apis/apis';
 import { useAuth } from '../../Context/auth';
 import { MainLayout, PostsList } from '../../Components';
 import Loading from '../../Components/Loading';
+import Empty from '../../Components/Empty';
+import defaultAvatar from '../../assets/user_default.png';
 
 const User = () => {
   const { id } = useParams();
@@ -65,7 +67,7 @@ const User = () => {
                 <div className="flex justify-between items-center w-full">
                   <div className="flex">
                     <img
-                      src={userInfo.avatar}
+                      src={userInfo.avatar ? userInfo.avatar : defaultAvatar}
                       alt=""
                       className="h-[76px] w-20 absolute top-0 border-r-2 border-black rounded-l-lg object-cover"
                     />
@@ -96,7 +98,11 @@ const User = () => {
           </div>
           <section className="">
             <div className="mt-28 mb-3 space-y-4">
-              {listData && listData !== [] && <PostsList data={listData} />}
+              {listData && listData !== [] && listData.length ? (
+                <PostsList data={listData} />
+              ) : (
+                <Empty type="USER" />
+              )}
             </div>
           </section>
         </div>

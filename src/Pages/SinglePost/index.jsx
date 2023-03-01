@@ -4,11 +4,13 @@ import { MainLayout } from '../../Components';
 import Post from '../../Components/PostsList/Post';
 import { PostApis } from '../../apis/apis';
 import Loading from '../../Components/Loading';
+import Empty from '../../Components/Empty';
 
 const SinglePost = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [notPost, setNotPost] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -16,16 +18,25 @@ const SinglePost = () => {
       if (result.status) {
         setData(result.data);
         setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        setNotPost(true);
       }
     }
     fetchData();
   }, [id]);
 
-  return (
-    <MainLayout>
-      {isLoading ? <Loading /> : data && <Post data={data} />}
-    </MainLayout>
-  );
+  let content;
+
+  if (isLoading) {
+    content = <Loading />;
+  } else if (notPost) {
+    content = <Empty type="POST" />;
+  } else if (data) {
+    content = <Post data={data} />;
+  }
+
+  return <MainLayout>{content}</MainLayout>;
 };
 
 export default memo(SinglePost);

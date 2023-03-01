@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { MainLayout } from '../../Components';
 import { PostApis, UserApis } from '../../apis/apis';
 import Loading from '../../Components/Loading';
+import Empty from '../../Components/Empty';
 
 const LikesItem = ({ data, removeLike }) => {
   const { createdAt, userId, _id: postID } = data;
@@ -93,9 +94,13 @@ const Likes = () => {
           <Loading />
         ) : (
           <div className="mt-24 space-y-4">
-            {likesList.map((like) => (
-              <LikesItem key={like._id} data={like} removeLike={removeLike} />
-            ))}
+            {likesList && likesList.length ? (
+              likesList.map((like) => (
+                <LikesItem key={like._id} data={like} removeLike={removeLike} />
+              ))
+            ) : (
+              <Empty type="LIKES" />
+            )}
           </div>
         )}
       </div>
