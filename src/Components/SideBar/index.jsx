@@ -17,51 +17,49 @@ function SideBar() {
       <aside className="hidden ml-[27px] md:flex md:flex-col border-2 border-black bg-white py-8 px-6 min-w-[309px]">
         <Link
           to="/create"
-          className="border-2 border-black rounded-md py-4 bg-[#03438D] hover:bg-[#EEC32A] hover:text-black text-white shadow-btn font-mono font-bold mb-6 text-center"
+          className="border-2 border-black rounded-md py-4 bg-primary hover:bg-[#EEC32A] hover:text-black text-white shadow-btn font-mono font-bold mb-6 text-center"
         >
           張貼動態
         </Link>
         <ul className="pl-2 space-y-2">
-          <li className="flex items-center">
-            <img
-              src={user.avatar}
-              alt="avatar"
-              className="rounded-full w-[50px] h-[50px] border-2 border-black object-cover"
-            />
-            <span className="font-bold ml-4">{user.name}</span>
+          <li>
+            <Link to={`/users/${user.id}`} className="flex items-center">
+              <img
+                src={user.avatar}
+                alt="avatar"
+                className="rounded-full w-[50px] h-[50px] border-2 border-black object-cover"
+              />
+              <span className="font-bold ml-4 hover:text-primary">
+                {user.name}
+              </span>
+            </Link>
           </li>
           <li>
-            <Link
-              to="/follow"
-              className="flex items-center hover:text-[#03438D]"
-            >
+            <Link to="/follow" className="flex items-center hover:text-primary">
               <FontAwesomeIcon
                 icon={faBell}
                 size="xl"
-                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-[#03438D] hover:text-white"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-primary hover:text-white"
               />
               <span className="font-bold ml-4">追蹤名單</span>
             </Link>
           </li>
           <li>
-            <Link
-              to="/likes"
-              className="flex items-center hover:text-[#03438D]"
-            >
+            <Link to="/likes" className="flex items-center hover:text-primary">
               <FontAwesomeIcon
                 icon={faThumbsUp}
                 size="xl"
-                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-[#03438D] hover:text-white"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-primary hover:text-white"
               />
               <span className="font-bold ml-4">我按讚的文章</span>
             </Link>
           </li>
           <li>
-            <Link to="/chat" className="flex items-center hover:text-[#03438D]">
+            <Link to="/chat" className="flex items-center hover:text-primary">
               <FontAwesomeIcon
                 icon={faPaperPlane}
                 size="xl"
-                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-[#03438D] hover:text-white"
+                className="rounded-full border-black border-2 p-3 bg-[#E2EDFA] hover:bg-primary hover:text-white"
               />
               <span className="font-bold ml-4">聊天室</span>
             </Link>
@@ -69,7 +67,7 @@ function SideBar() {
         </ul>
       </aside>
       <aside className="md:hidden fixed bottom-5 left-0 w-full px-2 bg-transparent">
-        <ul className="rounded-full border-2 border-black flex justify-between px-[46px] py-[9px] bg-[#EFECE7]">
+        <ul className="rounded-full border-2 border-black flex justify-between px-[46px] py-[9px] bg-main">
           <li>
             <Link
               to="/"
@@ -97,7 +95,7 @@ function SideBar() {
           <li>
             <Link
               to="/create"
-              className="block border-2 border-black rounded-full bg-[#03438D] w-12 h-12 text-white text-center"
+              className="block border-2 border-black rounded-full bg-primary w-12 h-12 text-white text-center"
             >
               <FontAwesomeIcon icon={faPlus} size="xl" className="p-2" />
             </Link>
@@ -105,7 +103,7 @@ function SideBar() {
           <li>
             <Link
               to="/chat"
-              className="block border-2 border-black rounded-full bg-[#03438D] w-12 h-12 text-white text-center"
+              className="block border-2 border-black rounded-full bg-primary w-12 h-12 text-white text-center"
             >
               <FontAwesomeIcon icon={faPaperPlane} size="xl" className="p-2" />
             </Link>

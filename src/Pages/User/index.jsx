@@ -84,7 +84,7 @@ const User = () => {
                     <button
                       type="button"
                       className={`border-2 border-black ${
-                        isFollowed ? 'bg-[#EFECE7]' : 'bg-[#EEC32A]'
+                        isFollowed ? 'bg-main' : 'bg-[#EEC32A]'
                       }  rounded-lg py-[6px] px-4 sm:px-8 shadow-list mr-4 `}
                       onClick={handleFollowing}
                     >

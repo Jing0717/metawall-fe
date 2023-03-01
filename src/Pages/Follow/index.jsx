@@ -49,7 +49,7 @@ const FollowingItem = ({ data }) => {
           className="rounded-full w-[40px] h-[40px] border-2 border-black object-cover"
         />
         <div className="flex flex-col gap-1 ml-4">
-          <span className="font-bold hover:text-[#03438D] hover:underline ">
+          <span className="font-bold hover:text-primary hover:underline ">
             {user.name}
           </span>
           <span className="text-xs text-[#9B9893]">

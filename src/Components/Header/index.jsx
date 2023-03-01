@@ -34,17 +34,17 @@ function Header() {
           {dropMenuShow && (
             <div className="hidden md:block relative">
               <ul className="font-sans flex flex-col border-2 border-black text-center w-[182px] absolute bg-white top-3 left-0 z-20">
-                <li className="border-b-2 border-black hover:bg-[#EFECE7]">
+                <li className="border-b-2 border-black hover:bg-main">
                   <Link to="/#" className="py-2 block">
                     我的貼文牆
                   </Link>
                 </li>
                 <li className="border-b-2 border-black ">
-                  <Link to="/profile" className="py-2 block hover:bg-[#EFECE7]">
+                  <Link to="/profile" className="py-2 block hover:bg-main">
                     修改個人資料
                   </Link>
                 </li>
-                <li className="hover:bg-[#EFECE7]">
+                <li className="hover:bg-main">
                   <button
                     className="py-2"
                     type="button"
@@ -71,17 +71,17 @@ function Header() {
           onMouseLeave={() => setDropMenuShow(false)}
         >
           <ul className="w-full font-sans flex flex-col border-black text-center bg-white top-3 left-0">
-            <li className="border-b-2 border-black hover:bg-[#EFECE7]">
+            <li className="border-b-2 border-black hover:bg-main">
               <Link to="/#" className="py-2 block">
                 我的貼文牆
               </Link>
             </li>
             <li className="border-b-2 border-black ">
-              <Link to="/profile" className="py-2 block hover:bg-[#EFECE7]">
+              <Link to="/profile" className="py-2 block hover:bg-main">
                 修改個人資料
               </Link>
             </li>
-            <li className="hover:bg-[#EFECE7]">
+            <li className="hover:bg-main">
               <button
                 className="py-2 w-full"
                 type="button"

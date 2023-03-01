@@ -34,9 +34,7 @@ const LikesItem = ({ data, removeLike }) => {
           className="rounded-full w-[40px] h-[40px] border-2 border-black object-cover"
         />
         <div className="flex flex-col gap-1 ml-4">
-          <span className="font-bold hover:text-[#03438D] hover:underline">
-            {userId.name}
-          </span>
+          <span className="font-bold">{userId.name}</span>
           <span className="text-xs text-[#9B9893]">
             發文時間：{timeFormat(createdAt)}
           </span>

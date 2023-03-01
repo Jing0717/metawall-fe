@@ -70,6 +70,7 @@ function Register() {
             })}
             className="w-full font-mono border-black border-2 py-4 pl-6 mt-4"
             placeholder="Email"
+            type="email"
           />
           {errors.email && (
             <div className="text-[#F57375]">{errors.email.message}</div>

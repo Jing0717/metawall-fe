@@ -81,7 +81,7 @@ function Filter({ setListsData, setIsLoading }) {
     <>
       <select
         onChange={handleOptionOnChange}
-        className="appearance-none h-[46px] border-black border-2 px-3 bg-white pr-6 min-w-[156px]"
+        className="appearance-none h-[46px] border-black border-2 px-3 bg-white pr-6 min-w-[156px] w-full md:w-auto"
       >
         {FILTER_OPTIONS.map((item) => (
           <option key={item.id} value={`${item.type}-${item.value}`}>
@@ -89,23 +89,28 @@ function Filter({ setListsData, setIsLoading }) {
           </option>
         ))}
       </select>
-      <div className="w-3/5 md:w-6/12 relative">
-        <form className="flex h-[46px] w-full absolute right-0">
+      <div className="md:w-6/12">
+        <div className="flex h-[46px] w-full">
           <input
             className="border-black border-2 py-3 pl-4 w-full"
             type="text"
             placeholder="搜尋貼文"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                event.preventDefault();
+              }
+            }}
           />
           <button
-            className="border-black border-y-2 border-r-2 bg-[#03438D]  text-white py-3 px-4"
+            className="border-black border-y-2 border-r-2 bg-primary  text-white py-3 px-4"
             type="button"
             onClick={handleOnButtonClick}
           >
             <FontAwesomeIcon icon={faMagnifyingGlass} className="mb-1" />
           </button>
-        </form>
+        </div>
       </div>
     </>
   );

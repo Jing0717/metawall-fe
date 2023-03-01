@@ -6,7 +6,7 @@ function MainLayout({ children }) {
   return (
     <main className="linear-gradient bg-repeat pb-16 min-h-screen">
       <Header />
-      <section className="container flex pt-6 md:pt-[49px] justify-between items-start">
+      <section className="container flex pt-4 md:pt-[49px] justify-between items-start">
         {children}
         <SideBar />
       </section>

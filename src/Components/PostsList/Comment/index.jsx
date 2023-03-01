@@ -11,7 +11,7 @@ function Comments({ data }) {
 
   return (
     <div className="mt-[18.5px]">
-      <div className="bg-[#EFECE7] rounded-lg p-4 bg-opacity-30">
+      <div className="bg-main rounded-lg p-4 bg-opacity-30">
         <div className="flex items-start">
           <img
             src={user.avatar}

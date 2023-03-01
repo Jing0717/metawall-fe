@@ -17,9 +17,12 @@ const Chat = () => {
   const API_URL = process.env.REACT_APP_API_URL;
 
   const handleInputKeyPress = async (e) => {
+    if (isDisabled) return;
     if (e.key === 'Enter' && content !== '') {
+      setIsDisabled(true);
       await MessagesApis.send({ content });
       setContent('');
+      setIsDisabled(false);
     }
   };
 
@@ -102,14 +105,14 @@ const Chat = () => {
               type="text"
               value={content}
               onChange={handleInputChange}
-              onKeyPress={handleInputKeyPress}
+              onKeyDown={handleInputKeyPress}
               className="w-full p-2"
             />
             <button type="button" onClick={handleSendMessage}>
               <FontAwesomeIcon
                 icon={faPaperPlane}
                 size="xl"
-                className={`bg-[#03438D] p-2 text-white block ${
+                className={`bg-primary p-2 text-white block ${
                   isDisabled
                     ? 'pointer-events-none cursor-not-allowed bg-gray-500'
                     : 'bg-black text-white'

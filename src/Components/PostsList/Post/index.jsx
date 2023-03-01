@@ -79,7 +79,7 @@ function Post({ data }) {
             className="rounded-full w-[45px] h-[45px] border-2 border-black object-cover"
           />
           <div className="flex flex-col gap-1 ml-4">
-            <span className="font-bold hover:text-[#03438D] hover:underline">
+            <span className="font-bold hover:text-primary hover:underline">
               {userId.name}
             </span>
             <span className="text-xs text-gray-300">
@@ -98,7 +98,7 @@ function Post({ data }) {
           )}
         </div>
         <button
-          className="text-[#03438D] my-5 text-left"
+          className="text-primary my-5 text-left"
           onClick={handleClickLikes}
           type="button"
         >
@@ -126,7 +126,7 @@ function Post({ data }) {
             />
             <button
               type="button"
-              className="bg-[#03438D] text-white w-1/3 border-black border-2 border-l-0 max-w-[128px]"
+              className="bg-primary text-white w-1/3 border-black border-2 border-l-0 max-w-[128px]"
               onClick={submitComment}
             >
               留言

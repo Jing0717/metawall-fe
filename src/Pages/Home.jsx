@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo, useLayoutEffect } from 'react';
+import React, { useState, memo, useLayoutEffect } from 'react';
 import { MainLayout, Filter, PostsList } from '../Components';
 import { PostApis } from '../apis/apis';
 import Loading from '../Components/Loading';
@@ -18,18 +18,18 @@ function Home() {
 
   return (
     <MainLayout>
-      <div className="flex flex-col w-full">
-        <section className="flex gap-2 justify-between">
+      <section className="flex flex-col w-full">
+        <div className="flex flex-col w-full gap-2 space-y-2  justify-between md:flex-row md:items-center md:space-y-0">
           <Filter setListsData={setListsData} setIsLoading={setIsLoading} />
-        </section>
+        </div>
         {isLoading ? (
           <Loading />
         ) : (
-          <section className="mt-4 space-y-4">
+          <div className="mt-4 space-y-4">
             <PostsList data={listsData} />
-          </section>
+          </div>
         )}
-      </div>
+      </section>
     </MainLayout>
   );
 }

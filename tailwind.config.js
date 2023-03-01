@@ -22,6 +22,7 @@ module.exports = {
       },
       colors: {
         main: '#EFECE7',
+        primary: '#03438D',
       },
       boxShadow: {
         btn: '-2px 2px 0px #000400',

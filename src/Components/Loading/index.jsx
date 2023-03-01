@@ -5,7 +5,7 @@ const Loading = () => (
     <div className="flex items-center justify-center text-xl">
       Loading...
       <svg
-        className="animate-spin h-5 w-5 mr-3 fill-[#03438D] dark:text-gray-600"
+        className="animate-spin h-5 w-5 mr-3 fill-primary dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
