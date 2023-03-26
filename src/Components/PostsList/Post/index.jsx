@@ -24,6 +24,7 @@ function Post({ data }) {
   const [commentContent, setCommentContent] = useState('');
   const [isLiked, setIsLiked] = useState(null);
   const [likesList, setLikesList] = useState(likes);
+  const [isDisabled, setIsDisabled] = useState(false);
   const avatar = userId.avatar !== '' ? userId.avatar : defaultUser;
 
   const timeFormat = (createdTime) => {
@@ -36,6 +37,7 @@ function Post({ data }) {
   };
 
   const submitComment = async () => {
+    setIsDisabled(true);
     const result = await CommentApis.create({
       postID,
       comment: commentContent,
@@ -43,6 +45,7 @@ function Post({ data }) {
     if (result.status) {
       setCommentData([...commentData, result.data]);
       setCommentContent('');
+      setIsDisabled(false);
     }
   };
 
@@ -126,8 +129,13 @@ function Post({ data }) {
             />
             <button
               type="button"
-              className="bg-primary text-white w-1/3 border-black border-2 border-l-0 max-w-[128px]"
+              className={`bg-primary text-white w-1/3 border-black border-2 border-l-0 max-w-[128px]${
+                isDisabled
+                  ? 'pointer-events-none cursor-not-allowed bg-gray-500'
+                  : ''
+              }`}
               onClick={submitComment}
+              disabled={isDisabled}
             >
               留言
             </button>
