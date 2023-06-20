@@ -50,6 +50,10 @@ function Register() {
                 value: 2,
                 message: '暱稱至少 2 個字元以上',
               },
+              maxLength: {
+                value: 10,
+                message: '暱稱 10 個字元以內',
+              },
             })}
             className={`w-full font-mono border-black border-2 py-4 pl-6 w-12${
               errors.name && 'ring-2 ring-red-500'
@@ -81,6 +85,10 @@ function Register() {
               minLength: {
                 value: 8,
                 message: '密碼至少 8 個字元以上',
+              },
+              maxLength: {
+                value: 20,
+                message: '密碼最多 20 字元',
               },
             })}
             className="w-full font-mono border-black border-2 py-4 pl-6 mt-4"
